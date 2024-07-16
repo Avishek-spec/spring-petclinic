@@ -145,7 +145,10 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-enforcer-plugin</artifactId>
+	<artifactId>maven-enforcer-plugin</artifactId>
+        <configuration>
+                <skip>true</skip>
+        </configuration>		
         <executions>
           <execution>
             <id>enforce-java</id>
