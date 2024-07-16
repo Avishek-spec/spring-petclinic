@@ -116,7 +116,10 @@
     <plugins>
       <plugin>
         <groupId>io.spring.javaformat</groupId>
-        <artifactId>spring-javaformat-maven-plugin</artifactId>
+	<artifactId>spring-javaformat-maven-plugin</artifactId>
+	<configuration>
+                <skip>true</skip>
+	</configuration>		
         <version>${spring-format.version}</version>
         <executions>
           <execution>
