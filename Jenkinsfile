@@ -1,16 +1,30 @@
 #!groovy
 pipeline {
-    agent none
-   stages {     
-    stage('Maven Install') {
-      agent {         
-       docker {          
-         image 'maven:3.6.3'         
-     }       
-  }       
-  steps {
-       sh 'mvn clean install'
-       }
-     }
+    agent any
+
+    stages {
+        stage('MavenPackage') {
+            steps {
+                   
+                sh './mvnw package'
+
+            }
+        }
+
+        stage('DockerBuild') {
+            steps {
+                     
+                    sh 'docker build -t avisheksarkar2024/springpetclinic:latest .'
+                   }
+           }
+
+        stage('Imagepush') {
+            steps {
+                     
+                    sh 'docker push avisheksarkar2024/springpetclinic:latest '
+                   }
+           }
+
+      }
+   
    }
- }
